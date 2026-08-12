@@ -1,0 +1,18 @@
+# O site tem repositório próprio: github.com/afieldecide/site
+site/
+
+# Configuração local de máquina (caminhos, portas, permissões)
+.claude/
+
+# Insumos pesados e descartáveis
+*.zip
+ARTES/_foto-base-torcedor.png
+
+# Operacional interno: prompts de sessão com caminhos da máquina do mantenedor.
+# Não é doutrina do movimento e não faz falta pra quem for reerguer o projeto.
+PLANO/09-chips-proximas-sessoes.md
+
+# Sistema
+Thumbs.db
+desktop.ini
+__pycache__/

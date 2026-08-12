@@ -1,0 +1,607 @@
+<title>A Fiel Decide — Democracia Corinthiana Digital</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="O SAFiel traz o capital. A Fiel traz o mandato. Voto aberto, contas na mesa, urna de vidro auditável — sem pedir um centavo. Movimento independente da torcida do Corinthians.">
+<style>
+  :root{
+    --ink:#0b0b0c;
+    --paper:#ffffff;
+    --panel:#f4f2ee;
+    --mute:#6c6a65;
+    --line:#e5e2db;
+    --glint:#b3934a;          /* ouro velho — o Diamante. Uso mínimo. */
+    --field:#0b0b0c;          /* bloco invertido */
+    --field-ink:#f4f2ee;
+    --field-mute:#a6a29a;
+    --field-line:#26262a;
+    --maxw:1120px;
+    --measure:64ch;
+    --font-display:"Arial Narrow","Helvetica Neue Condensed",Impact,"Haettenschweiler",system-ui,sans-serif;
+    --font-body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono",Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#f4f2ee; --paper:#0b0b0c; --panel:#141416; --mute:#9a968e;
+      --line:#26262a; --field:#f4f2ee; --field-ink:#0b0b0c;
+      --field-mute:#5a5852; --field-line:#d8d4cc; --glint:#c8a24e;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#f4f2ee; --paper:#0b0b0c; --panel:#141416; --mute:#9a968e;
+    --line:#26262a; --field:#f4f2ee; --field-ink:#0b0b0c;
+    --field-mute:#5a5852; --field-line:#d8d4cc; --glint:#c8a24e;
+  }
+  :root[data-theme="light"]{
+    --ink:#0b0b0c; --paper:#ffffff; --panel:#f4f2ee; --mute:#6c6a65;
+    --line:#e5e2db; --field:#0b0b0c; --field-ink:#f4f2ee;
+    --field-mute:#a6a29a; --field-line:#26262a; --glint:#b3934a;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  .wrap{background:var(--paper);color:var(--ink);font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
+  .wrap img{max-width:100%}
+  a{color:inherit}
+
+  /* ---------- shared ---------- */
+  .sec{padding:clamp(3.5rem,9vw,7rem) 1.5rem}
+  .inner{max-width:var(--maxw);margin:0 auto}
+  .eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--mute);margin:0 0 1.2rem;display:flex;
+    align-items:center;gap:.7rem}
+  .eyebrow::before{content:"";width:1.6rem;height:1px;background:currentColor;opacity:.6}
+  h1,h2,h3{font-family:var(--font-display);font-weight:700;text-transform:uppercase;
+    text-wrap:balance;letter-spacing:.005em;line-height:.94;margin:0}
+  h2{font-size:clamp(2rem,5.2vw,3.6rem)}
+  h3{font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1}
+  p{margin:0 0 1rem}
+  .lead{font-size:clamp(1.1rem,2vw,1.4rem);line-height:1.4;max-width:34ch}
+  .body{max-width:var(--measure);color:var(--ink)}
+  .body.mute{color:var(--mute)}
+  .glint{color:var(--glint)}
+
+  /* diamond mark */
+  .diamond{width:1em;height:1em;display:inline-block;transform:rotate(45deg);
+    border:2px solid var(--glint);position:relative;vertical-align:-.05em}
+  .diamond::after{content:"";position:absolute;inset:3px;border:1px solid var(--glint);opacity:.5}
+
+  /* ---------- top bar ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 86%,transparent);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .topbar .row{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;
+    justify-content:space-between;gap:1rem;padding:.7rem 1.5rem}
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);
+    text-transform:uppercase;letter-spacing:.02em;font-size:1.05rem}
+  .brand .diamond{font-size:.9rem}
+  .btn{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;
+    text-transform:uppercase;text-decoration:none;border:1.5px solid var(--ink);
+    color:var(--ink);background:transparent;padding:.7rem 1.1rem;cursor:pointer;
+    display:inline-flex;align-items:center;gap:.5rem;transition:background .18s,color .18s,transform .1s}
+  .btn:hover{background:var(--ink);color:var(--paper)}
+  .btn:active{transform:translateY(1px)}
+  .btn.solid{background:var(--ink);color:var(--paper)}
+  .btn.solid:hover{background:transparent;color:var(--ink)}
+  .btn.onfield{border-color:var(--field-ink);color:var(--field-ink)}
+  .btn.onfield:hover{background:var(--field-ink);color:var(--field)}
+  .btn.onfield.solid{background:var(--field-ink);color:var(--field)}
+  .btn.onfield.solid:hover{background:transparent;color:var(--field-ink)}
+  :focus-visible{outline:2px solid var(--glint);outline-offset:3px}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--field);color:var(--field-ink);padding:clamp(3rem,8vw,6rem) 1.5rem clamp(3rem,7vw,5rem)}
+  .hero .inner{max-width:var(--maxw)}
+  .hero .eyebrow{color:var(--field-mute)}
+  .kicker{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--field-mute)}
+  .hero h1{font-size:clamp(3.4rem,15vw,9.5rem);color:var(--field-ink);margin:.4rem 0 0;
+    letter-spacing:-.01em}
+  .hero .thesis{font-family:var(--font-display);text-transform:uppercase;
+    font-size:clamp(1.3rem,3.4vw,2.4rem);line-height:1;margin:1.6rem 0 0;color:var(--field-ink)}
+  .hero .thesis b{color:var(--glint)}
+  .hero .sub{color:var(--field-mute);max-width:52ch;margin:1.5rem 0 0;font-size:1.05rem}
+  .hero .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.2rem}
+  .faixa{margin:2.6rem 0 0;border-top:1px solid var(--field-line);border-bottom:1px solid var(--field-line);
+    padding:1rem 0;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+  .faixa .q{font-family:var(--font-display);text-transform:uppercase;font-style:italic;
+    font-size:clamp(1.1rem,3vw,1.9rem);line-height:1;color:var(--field-ink)}
+  .faixa .src{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;color:var(--field-mute)}
+
+  /* ---------- placar / scoreboard ---------- */
+  .grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:2.5rem}
+  @media(min-width:640px){.grid.cols4{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:900px){.grid.cols4{grid-template-columns:repeat(4,1fr)}}
+  .cell{background:var(--paper);padding:1.6rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;min-height:9.5rem}
+  .cell .num{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.1rem);
+    line-height:.9;font-variant-numeric:tabular-nums}
+  .cell .lab{font-size:.95rem;color:var(--ink)}
+  .cell .src{margin-top:auto;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--mute)}
+  .cell .src a{color:var(--mute)}
+
+  /* ---------- cédula / ballot ---------- */
+  .ballot{background:var(--panel);border:1px solid var(--line);padding:clamp(1.6rem,4vw,2.6rem);
+    max-width:640px;margin:2.2rem auto 0}
+  .ballot .tag{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);display:flex;justify-content:space-between;gap:1rem}
+  .ballot .qz{font-family:var(--font-display);text-transform:uppercase;
+    font-size:clamp(1.3rem,3.5vw,1.9rem);line-height:1.02;margin:1rem 0 1.5rem}
+  .ballot .opts{display:grid;gap:.8rem;grid-template-columns:1fr 1fr}
+  .vote{font-family:var(--font-display);text-transform:uppercase;font-size:1.5rem;
+    letter-spacing:.03em;padding:1.1rem;background:transparent;color:var(--ink);
+    border:2px solid var(--ink);cursor:pointer;transition:background .15s,color .15s,transform .1s}
+  .vote:hover{background:var(--ink);color:var(--panel)}
+  .vote:active{transform:translateY(1px)}
+  .result{margin-top:1.4rem;display:none}
+  .result.show{display:block;animation:fade .4s ease both}
+  .bar{height:2.4rem;background:var(--paper);border:1px solid var(--line);display:flex;overflow:hidden}
+  .bar .sim{background:var(--ink);color:var(--paper)}
+  .bar .nao{background:transparent;color:var(--ink)}
+  .bar span{display:flex;align-items:center;padding:0 .7rem;font-family:var(--font-mono);
+    font-size:.8rem;white-space:nowrap;transition:flex-basis .6s cubic-bezier(.2,.7,.2,1)}
+  .result .note{font-family:var(--font-mono);font-size:.68rem;color:var(--mute);margin-top:.8rem;letter-spacing:.04em}
+
+  /* ---------- two-up thesis ---------- */
+  .twoup{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:2.5rem}
+  @media(min-width:800px){.twoup{grid-template-columns:1fr 1fr}}
+  .twoup .side{background:var(--paper);padding:clamp(1.6rem,3vw,2.4rem)}
+  .twoup .side.dark{background:var(--field);color:var(--field-ink)}
+  .twoup .side h3{margin-bottom:.8rem}
+  .twoup .side.dark h3{color:var(--field-ink)}
+  .twoup .side .k{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:.9rem}
+  .twoup .side.dark .k{color:var(--field-mute)}
+
+  /* ---------- planks (5 componentes) ---------- */
+  .plank{display:grid;gap:1rem;padding:2rem 0;border-top:1px solid var(--line)}
+  @media(min-width:760px){.plank{grid-template-columns:5.5rem 1fr;gap:2rem;align-items:start}}
+  .plank .no{font-family:var(--font-display);font-size:2.4rem;line-height:1;color:var(--glint)}
+  .plank h3{margin-bottom:.5rem}
+  .plank p{color:var(--mute);max-width:60ch;margin:0}
+
+  /* ---------- clause (leaderless) ---------- */
+  .clause{background:var(--field);color:var(--field-ink)}
+  .clause .big{font-family:var(--font-display);text-transform:uppercase;
+    font-size:clamp(1.8rem,6vw,4rem);line-height:.98;text-wrap:balance;margin:0 0 1.5rem}
+  .clause .rule{max-width:60ch;border-left:2px solid var(--glint);padding-left:1.3rem;
+    color:var(--field-ink);font-size:1.15rem}
+  .clause .rule b{color:var(--glint)}
+  .clause .sub{color:var(--field-mute);max-width:56ch;margin-top:1.4rem}
+
+  /* ---------- inegociavel ---------- */
+  .locks{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+  .lock{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;
+    border:1px solid var(--ink);padding:.6rem .9rem;display:flex;align-items:center;gap:.5rem}
+  .lock .diamond{font-size:.7rem}
+
+  /* ---------- final CTA ---------- */
+  .final{background:var(--field);color:var(--field-ink);text-align:center}
+  .final h2{color:var(--field-ink);font-size:clamp(2.4rem,8vw,5rem)}
+  .final .sub{color:var(--field-mute);max-width:48ch;margin:1.2rem auto 0}
+  .final .cta{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2.4rem}
+  .steps{display:grid;gap:1px;background:var(--field-line);border:1px solid var(--field-line);
+    margin-top:3rem;text-align:left}
+  @media(min-width:700px){.steps{grid-template-columns:repeat(4,1fr)}}
+  .step{background:var(--field);padding:1.4rem;display:flex;flex-direction:column;gap:.5rem}
+  .step .n{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.16em;color:var(--glint)}
+  .step .t{font-family:var(--font-display);text-transform:uppercase;font-size:1.2rem;line-height:1;color:var(--field-ink)}
+  .step .d{font-size:.9rem;color:var(--field-mute)}
+
+  /* ---------- footer ---------- */
+  .foot{background:var(--paper);color:var(--mute);border-top:1px solid var(--line);
+    font-family:var(--font-mono);font-size:.76rem;line-height:1.7}
+  .foot .inner{display:grid;gap:1.4rem}
+  .foot .disc{max-width:70ch}
+  .foot a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+  .foot .hash{font-family:var(--font-display);text-transform:uppercase;font-size:1.4rem;
+    letter-spacing:.02em;color:var(--ink)}
+  .seal{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--line);
+    padding:.5rem .8rem;color:var(--mute)}
+
+  /* ---------- sangria (contador vivo) ---------- */
+  .sangria{margin-top:2.5rem;background:var(--field);color:var(--field-ink);
+    border:1px solid var(--field);padding:clamp(1.6rem,4vw,2.4rem);display:grid;gap:.6rem}
+  .sangria .s-top{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--field-mute);display:flex;align-items:center;gap:.6rem}
+  .sangria .s-top::before{content:"";width:.55rem;height:.55rem;border-radius:50%;
+    background:var(--glint);animation:pulse 1.6s ease-in-out infinite}
+  .sangria .s-num{font-family:var(--font-display);font-size:clamp(2.6rem,9vw,5.5rem);
+    line-height:.95;color:var(--glint);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+  .sangria .s-cap{font-size:.92rem;color:var(--field-mute);max-width:70ch}
+  .sangria .s-cap b{color:var(--field-ink)}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+  @media(prefers-reduced-motion:reduce){.sangria .s-top::before{animation:none}}
+
+  /* ---------- urna de vidro ---------- */
+  .urna{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:2.5rem}
+  @media(min-width:800px){.urna{grid-template-columns:repeat(4,1fr)}}
+  .upass{background:var(--paper);padding:1.5rem 1.3rem;display:flex;flex-direction:column;gap:.6rem}
+  .upass .n{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;color:var(--glint)}
+  .upass .t{font-family:var(--font-display);text-transform:uppercase;font-size:1.25rem;line-height:1}
+  .upass .d{font-size:.9rem;color:var(--mute)}
+  .receipt{max-width:640px;margin:2.4rem 0 0;background:var(--paper);border:1px dashed var(--mute);
+    padding:1.4rem 1.6rem;font-family:var(--font-mono);font-size:.8rem;line-height:1.9;color:var(--mute)}
+  .receipt b{color:var(--ink)}
+  .receipt .rhash{color:var(--glint);word-break:break-all}
+
+  /* ---------- calendário / janela ---------- */
+  .tl{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:2.5rem}
+  @media(min-width:760px){.tl{grid-template-columns:repeat(3,1fr)}}
+  .tl .mo{background:var(--paper);padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+  .tl .when{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--glint)}
+  .tl .what{font-family:var(--font-display);text-transform:uppercase;font-size:1.25rem;line-height:1}
+  .tl .how{font-size:.9rem;color:var(--mute)}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:var(--measure);margin-top:2rem;border-top:1px solid var(--line)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{cursor:pointer;padding:1.1rem 0;font-family:var(--font-display);text-transform:uppercase;
+    font-size:1.15rem;line-height:1.05;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:var(--font-mono);color:var(--glint);flex:none}
+  .faq details[open] summary::after{content:"–"}
+  .faq .a{padding:0 0 1.2rem;color:var(--mute);max-width:60ch}
+  .faq .a b{color:var(--ink)}
+
+  /* reveal */
+  .rev{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .rev.in{opacity:1;transform:none}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @media(prefers-reduced-motion:reduce){
+    .rev{opacity:1;transform:none;transition:none}
+    .bar span{transition:none}
+    .result.show{animation:none}
+  }
+</style>
+
+<div class="wrap">
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="row">
+      <div class="brand"><span class="diamond"></span> A Fiel Decide</div>
+      <a class="btn solid" href="#assinar">Assinar</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="inner">
+      <p class="kicker">Democracia Corinthiana Digital · movimento independente da Fiel</p>
+      <h1>A Fiel<br>Decide</h1>
+      <p class="thesis">O SAFiel traz o <b>capital</b>.<br>A Fiel traz o <b>mandato</b>.</p>
+      <p class="sub">Um time fundado por operários, governado por ~4 mil pessoas de portão fechado — com a nossa própria casa penhorada por dívida. A crise não é só de dinheiro: é de poder. <b style="color:var(--field-ink)">Não pedimos seu Pix. Pedimos sua voz.</b></p>
+      <div class="cta">
+        <a class="btn onfield solid" href="#assinar">Assinar — é um voto, não um cheque</a>
+        <a class="btn onfield" href="#cedula">Votar agora ↓</a>
+      </div>
+      <div class="faixa">
+        <span class="q">“Ganhar ou perder, mas sempre com democracia.”</span>
+        <span class="src">Faixa da Fiel · Morumbi · dez/1983</span>
+      </div>
+      <p class="sub" style="margin-top:1.1rem"><b style="color:var(--field-ink)">Em 2026, barraram a faixa de protesto da Fiel na porta da Arena.</b> Censura na nossa própria casa. Barraram a faixa — <b class="glint">não vão barrar a urna.</b></p>
+    </div>
+  </header>
+
+  <!-- PLACAR -->
+  <section class="sec" id="placar">
+    <div class="inner">
+      <p class="eyebrow rev">O Placar Aberto — números que o clube já divulga</p>
+      <h2 class="rev">A conta é terminal.<br>O poder é de pouca gente.</h2>
+      <div class="grid cols4 rev">
+        <div class="cell">
+          <span class="num" data-count="2.72">R$ 0</span>
+          <span class="lab">bilhões de dívida bruta em 2025</span>
+          <span class="src">Fonte: Exame / Poder360</span>
+        </div>
+        <div class="cell">
+          <span class="num" data-count="35">0</span>
+          <span class="lab">milhões de corinthianos — sem voz formal</span>
+          <span class="src">Estimativa de torcida</span>
+        </div>
+        <div class="cell">
+          <span class="num">~4 mil</span>
+          <span class="lab">sócios decidem o futuro de todos</span>
+          <span class="src">Fonte: MeuTimão (aptos, 2023)</span>
+        </div>
+        <div class="cell">
+          <span class="num">Dez/26</span>
+          <span class="lab">eleição: a hora de cobrar o compromisso</span>
+          <span class="src">Mandato-tampão até 31/12/2026 · CNN</span>
+        </div>
+      </div>
+      <div class="sangria rev" role="note">
+        <div class="s-top">A sangria, ao vivo</div>
+        <div class="s-num" id="sangria" aria-live="off">R$ 0</div>
+        <div class="s-cap">é quanto o rombo cresceu <b>desde que você abriu esta página</b> — no ritmo do início de 2026: déficit de R$ 100 milhões só no 1º bimestre (~R$ 1,7 milhão por dia · fonte: MeuTimão). O juro não dorme. Quem manda hoje, dorme.</div>
+      </div>
+      <p class="body mute rev" style="margin-top:1.6rem">E a própria sede, o Parque São Jorge, foi dada como <b style="color:var(--ink)">garantia</b> de dívida com a União no acordo com a PGFN. A saída séria (o SAFiel) não está travada por falta de solução — está travada pela política do Parque São Jorge.</p>
+    </div>
+  </section>
+
+  <!-- CÉDULA -->
+  <section class="sec" id="cedula" style="background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="inner">
+      <p class="eyebrow rev">A Cédula — assim funciona o poder de decidir</p>
+      <h2 class="rev">Experimente votar.</h2>
+      <p class="body mute rev" style="margin-top:1rem">No app real, cada corinthiano vale um voto — auditável, sem peso por dinheiro. Isto aqui é uma demonstração.</p>
+
+      <div class="ballot rev">
+        <div class="tag"><span>Consulta popular #01</span><span>demonstração</span></div>
+        <p class="qz">Você defende voto para o sócio-torcedor já — sem esperar 2030?</p>
+        <div class="opts" id="opts">
+          <button class="vote" data-v="sim">Sim</button>
+          <button class="vote" data-v="nao">Não</button>
+        </div>
+        <div class="result" id="result">
+          <div class="bar">
+            <span class="sim" id="barSim">Sim 0%</span>
+            <span class="nao" id="barNao">Não 0%</span>
+          </div>
+          <p class="note" id="note">Obrigado. Seu voto foi somado nesta demonstração.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- URNA DE VIDRO -->
+  <section class="sec" id="urna">
+    <div class="inner">
+      <p class="eyebrow rev">A Urna de Vidro — por que ninguém consegue fraudar</p>
+      <h2 class="rev">Qualquer um reconta.<br>Nem a gente apaga.</h2>
+      <p class="body mute rev" style="margin-top:1rem">A primeira pergunta de qualquer corinthiano é a certa: <i>"quem me garante que não roubam os votos?"</i> Resposta: <b style="color:var(--ink)">ninguém garante — o sistema prova.</b> Todo o código é aberto, e cada consulta fecha lacrada em público. A blockchain entra como cartório, de graça e invisível: sem token, sem carteira, sem ninguém te vendendo moedinha.</p>
+      <div class="urna rev">
+        <div class="upass"><span class="n">PASSO 01</span><span class="t">Você vota</span><span class="d">1 pessoa = 1 voto, verificado por CPF — que nunca é guardado às claras.</span></div>
+        <div class="upass"><span class="n">PASSO 02</span><span class="t">Recebe o recibo</span><span class="d">Um código só seu. Ele prova que o seu voto está na urna, do jeito que você votou.</span></div>
+        <div class="upass"><span class="n">PASSO 03</span><span class="t">A urna abre</span><span class="d">No fim da consulta, o arquivo com todos os votos (anônimos) vira público. Qualquer um reconta.</span></div>
+        <div class="upass"><span class="n">PASSO 04</span><span class="t">O lacre</span><span class="d">A impressão digital do arquivo é carimbada na blockchain do Bitcoin (OpenTimestamps). Alterou uma vírgula? O mundo prova a fraude.</span></div>
+      </div>
+      <div class="receipt rev" aria-label="exemplo de recibo de votação">
+        <b>A FIEL DECIDE · COMPROVANTE DE VOTO</b><br>
+        consulta: <b>#01 — voto do torcedor já</b><br>
+        seu recibo: <span class="rhash">FD-7K3M-9QRT</span> · guarde-o<br>
+        apuração: arquivo público + lacre <span class="rhash">ots·btc</span><br>
+        conferido por: <b>qualquer um, inclusive você</b>
+      </div>
+      <p class="body mute rev" style="margin-top:1.6rem">E se o site cair, ou se todo mundo que cuida da plataforma sumir? <b style="color:var(--ink)">Nada se perde.</b> O código é aberto, os dados são públicos e replicados: a torcida reergue tudo em um fim de semana. Aqui não tem dono nem na infraestrutura — as chaves são de no mínimo três pessoas, e tudo o que importa é de todo mundo.</p>
+    </div>
+  </section>
+
+  <!-- TESE -->
+  <section class="sec" id="tese">
+    <div class="inner">
+      <p class="eyebrow rev">A Tese — por que a gente completa o SAFiel</p>
+      <h2 class="rev">Salvar o clube e mantê-lo do povo<br>é o mesmo projeto.</h2>
+      <div class="twoup rev">
+        <div class="side">
+          <p class="k">O que já existe</p>
+          <h3>SAFiel · o capital</h3>
+          <p class="body mute">Estrutura regulada que capta bilhões e profissionaliza o futebol sem vender a alma. O que falta a ela não é técnica — é legitimidade política pra vencer o Parque São Jorge.</p>
+        </div>
+        <div class="side dark">
+          <p class="k">O que faltava</p>
+          <h3>A Fiel · o mandato</h3>
+          <p class="body" style="color:var(--field-mute)">A camada de poder e confiança: voto aberto, transparência total e milhões de corinthianos organizados. A legitimidade popular não ameaça a reforma — <b class="glint">ela destrava a reforma</b>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDÁRIO -->
+  <section class="sec" id="janela" style="border-top:1px solid var(--line)">
+    <div class="inner">
+      <p class="eyebrow rev">O Calendário — a janela está aberta agora</p>
+      <h2 class="rev">O relógio joga a nosso favor<br>— se a gente começar já.</h2>
+      <p class="body mute rev" style="margin-top:1rem">O art. 81 do estatuto trancou a revotação da reforma até maio de 2027. Parece derrota — é a nossa chance: <b style="color:var(--ink)">tempo exato pra construir um mandato grande demais pra ser ignorado.</b></p>
+      <div class="tl rev">
+        <div class="mo"><span class="when">Agora → Nov/2026</span><span class="what">O Grito</span><span class="how">Manifesto, abaixo-assinado e primeiras consultas. Meta: prova de vida — dezenas de milhares de assinaturas.</span></div>
+        <div class="mo"><span class="when">Dez/2026</span><span class="what">A Eleição</span><span class="how">Todo candidato à presidência responde: <b style="color:var(--ink)">assina o compromisso com o voto do torcedor?</b> Quem assina leva o mandato popular. Quem foge, fica marcado.</span></div>
+        <div class="mo"><span class="when">Mai/2027</span><span class="what">A Revotação</span><span class="how">O art. 81 libera. Com presidente comprometido e mandato de milhões, a reforma volta à mesa — pra passar.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 COMPONENTES -->
+  <section class="sec" id="plano" style="background:var(--panel);border-top:1px solid var(--line)">
+    <div class="inner">
+      <p class="eyebrow rev">O Plano — cinco peças, tudo complementando o que já existe</p>
+      <h2 class="rev">Concreto. E sem caixa.</h2>
+      <div style="margin-top:1.5rem">
+        <div class="plank rev"><div class="no">01</div><div><h3>A Fiel Decide</h3><p>App aberto onde todo corinthiano vota. Um anel de voz pra massa (mandato político) e um anel qualificado onde o estatuto já dá poder. Uma pessoa, um voto — na urna de vidro: recontável por qualquer um, lacrada em registro público.</p></div></div>
+        <div class="plank rev"><div class="no">02</div><div><h3>Placar Aberto</h3><p>Transparência radical: os números que o clube já divulga, traduzidos pra linguagem de quebrada, com a fonte de cada dado. Farol de promessa × entrega — cobrando diretoria e SAFiel.</p></div></div>
+        <div class="plank rev"><div class="no">03</div><div><h3>O Mandato</h3><p>A reforma concreta: voto do torcedor já (sem esperar 2030), barreira baixa pra virar votante, câmara permanente da Fiel e trava de identidade com veto do povo.</p></div></div>
+        <div class="plank rev"><div class="no">04</div><div><h3>A Rede</h3><p>Sem líder, sem dono. Núcleos autônomos por quebrada, organizada e grupo de WhatsApp, com playbook aberto. Quem entra vira co-responsável, com o mesmo peso de todos.</p></div></div>
+        <div class="plank rev"><div class="no">05</div><div><h3>A Convocação</h3><p>Convite público e digno pra imprensa, ídolos, jogadores e organizadas amplificarem. Inbound primeiro: a rede entra, e só então a gente chama os holofotes. Nunca spam.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLÁUSULA -->
+  <section class="sec clause" id="clausula">
+    <div class="inner">
+      <p class="eyebrow rev" style="color:var(--field-mute)">A Cláusula — o que separa este movimento dos que falharam</p>
+      <p class="big rev">Aqui não tem líder.<br>Nem dono. Nem salvador.</p>
+      <p class="rule rev"><b>Quem recebe este manifesto e fica, vira co-dono da missão</b> — com o mesmo peso de todos os outros. Não existe alguém “lá em cima” pra puxar, nem pra esperar. Se você está lendo isto, a responsabilidade acabou de ser sua também.</p>
+      <p class="sub rev">Todo salvador vira, mais cedo ou mais tarde, um novo cartola. Não vamos repetir. Ninguém vem salvar o Corinthians: <b style="color:var(--field-ink)">nós somos quem a gente estava esperando.</b></p>
+    </div>
+  </section>
+
+  <!-- O CHAMADO -->
+  <section class="sec" id="chamado" style="background:var(--panel);border-top:1px solid var(--line)">
+    <div class="inner">
+      <p class="eyebrow rev">O Chamado — aos herdeiros da camisa</p>
+      <h2 class="rev">A Democracia Corinthiana<br>foi feita por jogadores.</h2>
+      <p class="body mute rev" style="margin-top:1.2rem">Sócrates, Wladimir, Casagrande, Zenon — foram <b style="color:var(--ink)">atletas</b> que decidiram tudo no voto, em plena ditadura, com o próprio emprego em jogo. <b style="color:var(--ink)">Elenco de 2026: vocês são os herdeiros diretos.</b> E a Fiel viu o Memphis abrir mão de dinheiro do próprio bolso pra seguir de preto e branco — o gringo entendeu o que muito cartola nunca entendeu: aqui, quem fica na crise vira história.</p>
+      <p class="body mute rev">O convite está feito, em praça pública, sem pedir um centavo a ninguém: <b style="color:var(--ink)">emprestem a voz.</b> Um story. Uma frase — <i>“a torcida merece votar”</i>. Sócrates jogou com “Eu quero votar pra presidente” nas costas. Hoje não custa nem isso.</p>
+      <p class="rev" style="font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.7rem,5vw,3rem);line-height:1;margin:1.8rem 0 0">Memphis, vem ser <span class="glint">Sócrates</span>.</p>
+    </div>
+  </section>
+
+  <!-- INEGOCIÁVEL -->
+  <section class="sec" id="inegociavel">
+    <div class="inner">
+      <p class="eyebrow rev">O Inegociável — a trava de identidade</p>
+      <h2 class="rev">O Diamante não se vende.</h2>
+      <p class="body mute rev" style="margin-top:1rem">Nenhuma reforma, nenhum investidor e nenhuma maioria pode tocar nisto — protegido por veto do povo em qualquer modelo, inclusive SAF:</p>
+      <div class="locks rev">
+        <span class="lock"><span class="diamond"></span>Nome</span>
+        <span class="lock"><span class="diamond"></span>Cores</span>
+        <span class="lock"><span class="diamond"></span>Escudo</span>
+        <span class="lock"><span class="diamond"></span>Hino</span>
+        <span class="lock"><span class="diamond"></span>Sede · Parque São Jorge</span>
+        <span class="lock"><span class="diamond"></span>Ingresso popular</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="faq" style="background:var(--panel);border-top:1px solid var(--line)">
+    <div class="inner">
+      <p class="eyebrow rev">Perguntas de quem desconfia — e faz bem em desconfiar</p>
+      <h2 class="rev">Desconfie. Depois confira.</h2>
+      <div class="faq rev">
+        <details>
+          <summary>Isso é golpe? Vão pedir meu dinheiro?</summary>
+          <p class="a"><b>Não tem Pix, não tem vaquinha, não tem loja — por regra de fundação.</b> O movimento não arrecada nada, nunca. Levantar capital é papel de estrutura regulada (SAFiel/clube), com CVM e auditoria. Se alguém pedir dinheiro em nome do movimento, é golpe: denuncie.</p>
+        </details>
+        <details>
+          <summary>Quem manda aqui? Quem tá por trás?</summary>
+          <p class="a"><b>Ninguém — e todo mundo.</b> Sem líder, sem presidente, sem salvador. Código aberto, mantenedores públicos e rotativos (mínimo de 3 pessoas em cada chave), decisões votadas na própria plataforma. Quem entra vira co-responsável, com o mesmo peso de todos.</p>
+        </details>
+        <details>
+          <summary>É contra o Conselho? Querem acabar com o clube social?</summary>
+          <p class="a"><b>Não. É uma ponte.</b> O Conselho tem a chance de entrar pra história como quem devolveu o clube ao povo. A presidência já sinalizou querer avançar com a reforma e o memorando — o que falta é o mandato popular que dá cobertura política pro "sim". É isso que a gente constrói.</p>
+        </details>
+        <details>
+          <summary>É braço do SAFiel?</summary>
+          <p class="a"><b>Somos independentes — e aliados no que salva o clube.</b> O SAFiel traz capital com estrutura regulada; a Fiel traz o mandato. E o Placar Aberto cobra promessa × entrega <b>dos dois lados</b>, diretoria e SAFiel. Ninguém fica sem fiscal.</p>
+        </details>
+        <details>
+          <summary>Voto pela internet não dá pra fraudar?</summary>
+          <p class="a"><b>Aqui a urna é de vidro.</b> 1 CPF = 1 voto, recibo individual, arquivo público de apuração que qualquer um reconta e lacre criptográfico gratuito na blockchain do Bitcoin. Nem os próprios mantenedores conseguem alterar um resultado sem que a fraude seja demonstrável em público.</p>
+        </details>
+        <details>
+          <summary>Por que não fazem logo uma vaquinha pra pagar a dívida?</summary>
+          <p class="a">Faz a conta: <b>1 milhão de corinthianos doando R$ 50 = R$ 50 milhões — menos de 2% da dívida.</b> Vaquinha não paga R$ 2,7 bilhões; só enriquece atravessador e queima a confiança da Fiel. Capital desse tamanho se levanta com estrutura regulada (é o trabalho do SAFiel). O que nenhum dinheiro compra — e é o que falta — é <b>mandato popular</b>. Esse a gente fabrica aqui, de graça.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="sec final" id="assinar">
+    <div class="inner">
+      <p class="eyebrow rev" style="color:var(--field-mute);justify-content:center">O primeiro passo — de graça, leva 1 minuto</p>
+      <h2 class="rev">Assina. Vota.<br>Chama a quebrada.</h2>
+      <p class="sub rev">O poder é nosso — se a gente pegar. Sua assinatura é um voto, não um cheque.</p>
+      <div class="cta rev">
+        <a class="btn onfield solid" href="#" data-role="petition">Assinar o abaixo-assinado</a>
+        <a class="btn onfield" href="https://afieldecide.github.io/site/nucleos/" target="_blank" rel="noopener">Abrir um núcleo</a>
+        <a class="btn onfield" href="#" data-role="share">Compartilhar</a>
+      </div>
+      <div class="steps rev">
+        <div class="step"><span class="n">PASSO 01</span><span class="t">Assine</span><span class="d">Um voto público pela democratização do clube.</span></div>
+        <div class="step"><span class="n">PASSO 02</span><span class="t">Vote</span><span class="d">Entre no A Fiel Decide e decida a 1ª consulta.</span></div>
+        <div class="step"><span class="n">PASSO 03</span><span class="t">Abra um núcleo</span><span class="d">Na sua quebrada, organizada ou grupo. Manual aberto.</span></div>
+        <div class="step"><span class="n">PASSO 04</span><span class="t">Passe pra frente</span><span class="d">Cada corinthiano que você chama tem o mesmo poder.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="sec foot">
+    <div class="inner">
+      <p class="hash">O Corinthians é uma torcida que tem um time.</p>
+      <div class="seal"><span class="diamond" style="font-size:.7rem"></span> Movimento independente da torcida · não arrecada dinheiro · aliado ao projeto SAFiel</div>
+      <p class="disc">Este é um movimento independente de torcedores. <b>Não é comunicação oficial do Sport Club Corinthians Paulista</b> e não usa o escudo oficial. Não capta, não guarda e não movimenta dinheiro: qualquer aporte de capital é responsabilidade de estruturas reguladas (SAFiel/clube). A plataforma nasce em código aberto, com apuração pública recontável e lacre criptográfico (OpenTimestamps) — a urna é de vidro. Fontes dos números: <a href="https://exame.com/esporte/corinthians-fecha-2025-com-prejuizo-de-r-143-milhoes-e-divida-de-r-27-bilhoes/">Exame</a>, <a href="https://www.meutimao.com.br/noticias-do-corinthians/532139/corinthians-registra-deficit-de-quase-r-100-milhoes-no-primeiro-bimestre-de-2026">MeuTimão (déficit 1º bim/26)</a>, <a href="https://www.corinthians.com.br/noticias/corinthians-firma-acordo-com-a-pgfn-e-reduz-divida-em-cerca-de-r-200-milhoes">Corinthians/PGFN</a>, <a href="https://www.cnnbrasil.com.br/esportes/futebol/corinthians/osmar-stabile-e-eleito-novo-presidente-do-corinthians/">CNN Brasil</a>, <a href="https://safiel.com.br/">SAFiel</a>. Democracia Corinthiana (1982–84): <a href="https://pt.wikipedia.org/wiki/Democracia_Corinthiana">Wikipédia</a>.</p>
+      <p class="hash" style="font-size:1.1rem">#AFielDecide · #DemocraciaCorinthianaDigital</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var root=document.querySelector('.wrap');
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  root.querySelectorAll('.rev').forEach(function(el){io.observe(el);});
+
+  // count-up
+  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function countUp(el){
+    var target=parseFloat(el.getAttribute('data-count'));
+    var isDecimal=el.getAttribute('data-count').indexOf('.')>-1;
+    var prefix=el.textContent.replace(/[0-9.,]/g,'').trim(); // keep "R$"
+    var hasReais=/R\$/.test(el.textContent);
+    if(reduce){ el.textContent=(hasReais?'R$ ':'')+fmt(target,isDecimal); return; }
+    var start=null,dur=1200;
+    function step(ts){
+      if(!start)start=ts; var p=Math.min((ts-start)/dur,1);
+      var val=target*ease(p);
+      el.textContent=(hasReais?'R$ ':'')+fmt(val,isDecimal);
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function ease(t){return 1-Math.pow(1-t,3);}
+  function fmt(v,dec){ if(dec){return v.toFixed(2).replace('.',',');} return Math.round(v).toLocaleString('pt-BR'); }
+  var counted=false;
+  var pio=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting&&!counted){ counted=true;
+      document.querySelectorAll('[data-count]').forEach(countUp); } });
+  },{threshold:.4});
+  var placar=document.getElementById('placar'); if(placar)pio.observe(placar);
+
+  // sangria: déficit de R$100 mi no 1º bimestre/2026 (59 dias) ≈ R$19,62/s (fonte MeuTimão)
+  var sEl=document.getElementById('sangria');
+  if(sEl){
+    var PER_SEC=100000000/(59*86400), s0=Date.now();
+    var sTick=function(){
+      var v=(Date.now()-s0)/1000*PER_SEC;
+      sEl.textContent='R$ '+v.toLocaleString('pt-BR',{maximumFractionDigits:0});
+    };
+    setInterval(sTick,reduce?1000:200); sTick();
+  }
+
+  // ballot demo
+  var seed={sim:1287,nao:143};
+  var voted=false;
+  document.getElementById('opts').addEventListener('click',function(ev){
+    var b=ev.target.closest('.vote'); if(!b||voted)return; voted=true;
+    var v=b.getAttribute('data-v'); seed[v]+=1;
+    var total=seed.sim+seed.nao;
+    var ps=Math.round(seed.sim/total*100), pn=100-ps;
+    var res=document.getElementById('result'); res.classList.add('show');
+    var bs=document.getElementById('barSim'), bn=document.getElementById('barNao');
+    requestAnimationFrame(function(){
+      bs.style.flexBasis=ps+'%'; bn.style.flexBasis=pn+'%';
+      bs.textContent='Sim '+ps+'%'; bn.textContent='Não '+pn+'%';
+    });
+    var rc='FD-', RC='ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+    for(var i=0;i<8;i++){ rc+=RC[Math.floor(Math.random()*RC.length)]; if(i===3)rc+='-'; }
+    document.getElementById('note').textContent='Você votou "'+(v==='sim'?'Sim':'Não')+'". Recibo (demonstração): '+rc+' — no app real, você confere seu recibo no arquivo público da apuração. Urna de vidro.';
+    document.getElementById('opts').querySelectorAll('.vote').forEach(function(x){x.disabled=true;x.style.opacity=.5;x.style.cursor='default';});
+  });
+
+  // CTAs: share real; petição/núcleo ainda sem destino
+  var SHARE={title:'A Fiel Decide',
+    text:'O Corinthians é decidido por ~4 mil sócios. A gente é 35 milhões. Voto aberto, contas na mesa, sem Pix e sem dono — assina e chama a quebrada. #AFielDecide',
+    url:location.href};
+  root.querySelectorAll('[data-role]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var r=a.getAttribute('data-role');
+      if(r==='share'){
+        if(navigator.share){ navigator.share(SHARE).catch(function(){}); }
+        else{ window.open('https://wa.me/?text='+encodeURIComponent(SHARE.text+' '+SHARE.url),'_blank','noopener'); }
+        return;
+      }
+      a.textContent=(r==='petition')
+        ?'O abaixo-assinado entra no ar em breve — compartilhe o site enquanto isso.'
+        :'O manual de núcleo entra no ar em breve — compartilhe o site enquanto isso.';
+    });
+  });
+})();
+</script>

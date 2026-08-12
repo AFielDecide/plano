@@ -82,7 +82,7 @@ Depois de assinar, manda para três corinthianos.
 ### Meta escalonada (pra manter o movimento vivo)
 - **10 mil** — vira notícia. · **50 mil** — imprensa nacional cobra o Conselho. · **200 mil** — nenhum candidato à eleição de dez/2026 ignora. · **500 mil+** — mandato popular grande demais pra ser barrado.
 
-### Como publicar (passo a passo pro Allan / rede)
+### Como publicar (passo a passo)
 1. Criar conta no Change.org → "Iniciar petição" → colar título e texto acima.
 2. Definir destinatários (Conselho/CORI/Presidência) e imagem própria.
 3. Publicar e pegar o link → colocar no site (botão "ASSINAR") e no convite viral do kit.

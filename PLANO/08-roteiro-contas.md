@@ -1,5 +1,5 @@
 # ROTEIRO DAS CONTAS — o que criar, em ordem
-### Checklist pro Allan. Quem cria as contas é você (eu não crio conta nem manuseio senha — e senha nunca entra no chat).
+### Checklist do mantenedor. Conta é criada por pessoa, nunca por automação — e senha nunca entra em chat, arquivo ou repositório.
 
 > **Regra de ouro antes de começar:** instale/abra um **gerenciador de senhas** (Bitwarden grátis, ou o do próprio navegador). Toda conta nova: senha gerada + **2FA ligado**. Anote tudo lá, nunca em papel/WhatsApp.
 
@@ -7,7 +7,7 @@
 
 ## Passo 0 — O e-mail do movimento (fundação de tudo)
 - Criar **e-mail dedicado** (Gmail): sugestão `afieldecide@gmail.com` (variações: `afieldecide.sp@`, `contato.afieldecide@`).
-- É ele que abre TODAS as contas abaixo — nada no seu e-mail pessoal (senão o movimento "é você", e a ideia é ser de todo mundo).
+- É ele que abre TODAS as contas abaixo — nunca o e-mail pessoal de alguém (senão o movimento vira propriedade de uma pessoa, e a ideia é ser de todo mundo).
 - Ligar 2FA (app autenticador, não SMS se possível).
 - **Futuro (regra dos 3):** quando existirem 2 pessoas de confiança na rede, elas viram co-titulares dos acessos (documento `MANTENEDORES.md` no repositório).
 
@@ -16,7 +16,7 @@
 2. "Iniciar petição" → colar **título e texto prontos** do `04-abaixo-assinado.md`.
 3. Destinatários: Conselho Deliberativo, CORI e Presidência do SCCP.
 4. Imagem da petição: usar `ARTES\v2-papel-e-tinta\card-01-4mil.png` (nunca o escudo oficial).
-5. Publicar → **copiar o link** → me mandar (eu ligo no botão do site).
+5. Publicar → **copiar o link** → ligar no botão do site e nos textos do kit 07.
 
 ## Passo 2 — Instagram 🔴
 - Handle: `@afieldecide` (cair pra `@afieldecide_` ou `@afieldecideoficial` se ocupado).
@@ -40,7 +40,7 @@
 ## Passo 6 — GitHub 🟡 (pro chip da infraestrutura)
 1. Criar conta pessoal (se não tiver) com o e-mail do movimento.
 2. Criar **organização** `afieldecide` (Settings → Organizations → New).
-3. No PC: `gh auth login` (eu te guio no chip — é 1 comando, ele abre o navegador).
+3. No computador: `gh auth login` (um comando; abre o navegador pra autorizar).
 
 ## Passo 7 — Cloudflare 🟢 (só quando o MVP da urna começar)
 - Conta free com o e-mail do movimento. O chip do MVP usa (Workers/D1 grátis).
@@ -60,4 +60,4 @@
 | 6 | GitHub | org afieldecide | Código aberto + site próprio | 🟡 antes do chip infra |
 | 7 | Cloudflare | — | Backend da urna (free) | 🟢 antes do chip MVP |
 
-**Quando terminar os 🔴:** me manda o link da petição + os handles → eu ligo tudo no site e a Onda 1 pode começar.
+**Quando terminar os 🔴:** com o link da petição e os handles em mãos, ligar tudo no site e nos textos do kit 07, e começar a Onda 1.

@@ -18,7 +18,7 @@
 | 05 | `05-site.html` | O site (landing + cédula + urna de vidro + FAQ) | **Entregável** |
 | 06 | `06-arquitetura-aberta.md` | A Urna de Vidro: como tudo roda **sem depender de ninguém** (código aberto, lacre em blockchain grátis, kit de sucessão) | **Entregável** |
 | 07 | `07-kit-divulgacao.md` | Divulgação de massa: calendário em ondas, textos por rede, roteiros de vídeo, mapa de canais | **Entregável** |
-| 08 | `08-roteiro-contas.md` | Checklist das contas que o Allan cria (e-mail, Change.org, redes, domínio, GitHub) | **Guia de ação** |
+| 08 | `08-roteiro-contas.md` | Checklist das contas que o mantenedor cria (e-mail, Change.org, redes, domínio, GitHub) | **Guia de ação** |
 | 09 | `09-chips-proximas-sessoes.md` | Os 5 chips/prompts das próximas sessões, na ordem | **Guia de ação** |
 | 10 | `10-playbook-nucleo.md` + `.html` | O Playbook do Núcleo — manual aberto de como abrir e tocar um núcleo (rito de 15 min, papéis rotativos, kit de rua) | **Entregável** |
 | — | `..\ARTES\v2-papel-e-tinta\` | 8 cards 1080×1080 + 4 fotos de perfil + 2 capas do X, na identidade do site novo (gerador: `gera_artes.py`) | **Entregável** |
@@ -42,7 +42,7 @@ Arquivos de trabalho (rascunho, pode ignorar): a conversão dos seus 3 .docx ori
 
 **Só você/a rede pode (nenhum custa mais que R$ 40):**
 1. **Aprovar o nome.** "A Fiel Decide" / 
-2. **Publicar o abaixo-assinado** (texto pronto no arquivo 04) — Change.org. Me manda o link que eu ligo no botão do site.
+2. **Publicar o abaixo-assinado** (texto pronto no arquivo 04) — Change.org. O link entra no botão do site e nos textos do kit 07.
 3. **Registrar os perfis** (Instagram/X/TikTok) — bios prontas no arquivo 07, artes prontas em `ARTES\`.
 4. **Falar com o SAFiel** (rascunho pronto no kit 03 → contato@safiel.com.br). Aliado nº 1.
 5. **Soltar a Onda 1** do `07-kit-divulgacao.md` nos seus grupos — inbound primeiro.

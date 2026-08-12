@@ -15,10 +15,10 @@
 ## 1. CALENDÁRIO — as 4 ondas
 
 ### Onda 0 — Arrumar a casa (antes de qualquer post)
-- [ ] Petição publicada no Change.org (texto pronto: `04-abaixo-assinado.md`)
-- [ ] Perfis criados: Instagram + X + TikTok (@afieldecide ou variação livre) — com a marca do losango, **nunca** o escudo oficial
-- [ ] Site no ar em endereço próprio (ver `06-arquitetura-aberta.md`, Fase 0)
-- [ ] Bios preenchidas (prontas na seção 4)
+- [x] Petição publicada no Change.org (texto pronto: `04-abaixo-assinado.md`) — link estável do movimento: `afieldecide.github.io/site/assinar/`
+- [x] Perfis criados: **[@afieldecide no Instagram](https://instagram.com/afieldecide)** e **[@afieldecide no X](https://x.com/afieldecide)** (12/08/2026) — com a faixa listrada, **nunca** o escudo oficial. Falta o TikTok.
+- [x] Site no ar: https://afieldecide.github.io/site/ (endereço próprio pendente do domínio)
+- [ ] Bios preenchidas (prontas na seção 3.5) e foto de perfil subida (`ARTES2-papel-e-tintavatar-01-fiel-tinta.png`; capa do X: `banner-x-02-tinta.png`)
 - **Gate de saída:** links funcionando ponta a ponta (site → petição → compartilhar).
 
 ### Onda 1 — A base (semanas 1–2): inbound puro
@@ -161,13 +161,13 @@ Textos prontos no `03-kit-convocacao.md` seção **2.3-B** (PT pro elenco, EN pr
 
 ### 3.5 Bios prontas
 
-**Instagram/TikTok:**
+**Instagram/TikTok:** (perfil: [@afieldecide](https://instagram.com/afieldecide))
 > ⬥ A Fiel Decide — Democracia Corinthiana Digital
 > Voto aberto, contas na mesa. 1 pessoa = 1 voto.
 > ❌ Não pedimos Pix ✅ Pedimos sua voz
 > Sem dono. Código aberto. 👇 Assina
 
-**X:**
+**X:** (perfil: [@afieldecide](https://x.com/afieldecide))
 > O SAFiel traz o capital. A Fiel traz o mandato. Consultas abertas (1 CPF = 1 voto), urna de vidro auditável, contas traduzidas. Não arrecadamos dinheiro — nunca. #AFielDecide
 
 ### 3.6 Respostas prontas às 5 objeções (pra quem for responder comentário)

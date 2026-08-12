@@ -34,6 +34,7 @@ ON_DARK_BODY = (181, 175, 166)
 RULE_DARK = (58, 53, 47)
 
 SITE = "AFIELDECIDE.GITHUB.IO/SITE"
+PERFIS = "@AFIELDECIDE · INSTAGRAM E X"
 
 _cache = {}
 
@@ -263,14 +264,15 @@ def card(nome, kicker, linhas, lead=None, fonte=None, escuro=False, carimbo=None
     escreve(d, (M, y), kicker.upper(), f_kick, mute, tr_kick)
     topo_livre = y + 78
 
-    # ---- rodape: regua + endereco + hashtag
-    y_rodape = H - M - 46
+    # ---- rodape: regua + perfis + endereco + hashtag
+    y_rodape = H - M - 58
     d.line([(M, y_rodape - 34), (W - M, y_rodape - 34)],
            fill=RULE_DARK if escuro else NUM_GHOST, width=3)
-    escreve(d, (M, y_rodape), SITE, mono(23), mute, 23 * 0.12)
-    f_tag = display(40)
+    escreve(d, (M, y_rodape), PERFIS, mono(21), fg, 21 * 0.14)
+    escreve(d, (M, y_rodape + 30), SITE, mono(21, negrito=False), mute, 21 * 0.14)
+    f_tag = display(38)
     tag = "#AFIELDECIDE"
-    escreve(d, (W - M - largura(d, tag, f_tag, -1.2), y_rodape - 12), tag, f_tag, fg, -1.2)
+    escreve(d, (W - M - largura(d, tag, f_tag, -1.2), y_rodape + 2), tag, f_tag, fg, -1.2)
     base_livre = y_rodape - 78
     if carimbo:
         base_livre -= 96

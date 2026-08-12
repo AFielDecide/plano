@@ -18,19 +18,19 @@
 4. Imagem da petição: usar `ARTES\v2-papel-e-tinta\card-01-4mil.png` (nunca o escudo oficial).
 5. Publicar → **copiar o link** → ligar no botão do site e nos textos do kit 07.
 
-## Passo 2 — Instagram 🔴
-- Handle: `@afieldecide` (cair pra `@afieldecide_` ou `@afieldecideoficial` se ocupado).
+## Passo 2 — Instagram ✅ FEITO (12/08/2026)
+- Handle oficial: **[@afieldecide](https://instagram.com/afieldecide)** — conquistado sem variação.
 - Bio pronta: seção 3.5 do `07-kit-divulgacao.md`. Link: site (depois, o domínio).
 - Primeiro post: `ARTES\v2-papel-e-tinta\card-01-4mil.png` com legenda do convite viral (kit 03, seção 2.5).
 - Foto de perfil: `ARTES\v2-papel-e-tinta\avatar-01-fiel-tinta.png` (ou a variação em papel). Vale pro X e pro TikTok também.
 - Conta **profissional** (categoria: organização sem fins lucrativos/comunidade) — libera métricas.
 
-## Passo 3 — X (Twitter) 🔴
-- Handle: `@afieldecide` (alternativas acima).
+## Passo 3 — X (Twitter) ✅ FEITO (12/08/2026)
+- Handle oficial: **[@afieldecide](https://x.com/afieldecide)** — o mesmo do Instagram, o que facilita a vida de quem procura.
 - Bio pronta (3.5 do kit 07). Fixar: a thread de lançamento (3.2) quando publicar.
 
 ## Passo 4 — TikTok 🟡
-- Mesmo handle. Conteúdo: roteiros A/B da seção 3.3 do kit 07 (cartelas de texto já bastam).
+- Mesmo handle (`@afieldecide`), pra manter o nome único em todas as redes. Conteúdo: roteiros A/B da seção 3.3 do kit 07 (cartelas de texto já bastam).
 
 ## Passo 5 — registro.br (o domínio) 🟡 ~R$ 40/ano
 - Registrar `afieldecide.com.br` (alternativas: `fieldecide.com.br`, `afieldecide.org.br`).
@@ -52,9 +52,9 @@
 | # | Conta | Handle/nome | Pra quê | Prioridade |
 |---|---|---|---|---|
 | 0 | Gmail | afieldecide@ | Fundação de todas as contas | 🔴 já |
-| 1 | Change.org | — | A petição (mandato nº 1) | 🔴 já |
-| 2 | Instagram | @afieldecide | Divulgação de massa | 🔴 já |
-| 3 | X | @afieldecide | Imprensa, setoristas, Memphis | 🔴 já |
+| 1 | Change.org | — | A petição (mandato nº 1) | ✅ feito |
+| 2 | Instagram | [@afieldecide](https://instagram.com/afieldecide) | Divulgação de massa | ✅ feito |
+| 3 | X | [@afieldecide](https://x.com/afieldecide) | Imprensa, setoristas, Memphis | ✅ feito |
 | 4 | TikTok | @afieldecide | Alcance jovem, cortes | 🟡 semana 1 |
 | 5 | registro.br | afieldecide.com.br | Endereço próprio (~R$ 40/ano) | 🟡 semana 1 |
 | 6 | GitHub | org afieldecide | Código aberto + site próprio | 🟡 antes do chip infra |

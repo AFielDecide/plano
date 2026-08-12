@@ -1,0 +1,4 @@
+# Rodar com: py -m pip install -r requirements.txt
+# (na maquina do mantenedor atual os tres ja estavam instalados)
+requests>=2.32
+Pillow>=11

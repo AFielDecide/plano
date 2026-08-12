@@ -1,0 +1,5 @@
+# Segredos. Nunca versionar.
+.env
+
+# Rascunho de token durante a gravacao atomica.
+.env.*.tmp

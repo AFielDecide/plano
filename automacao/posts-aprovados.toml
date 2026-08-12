@@ -1,0 +1,471 @@
+# FILA DE POSTS APROVADOS — A Fiel Decide
+#
+# Este arquivo e a fonte da verdade do que pode ser publicado por API.
+# O texto vem do `PLANO/11-fila-de-posts.md`; aqui ele vira dado que o
+# script le. Mudou o plano? Traga a mudanca para ca a mao — o script nunca
+# reescreve este arquivo.
+#
+# COMO APROVAR: troque `aprovado = false` por `aprovado = true`. Essa troca
+# e o ato de aprovacao, e ela e sua. O script se recusa a publicar qualquer
+# item com `aprovado = false`, e mesmo com `true` ele ainda pergunta antes
+# de publicar.
+#
+# CAMPOS
+#   id             identificador unico; e o que fica no registro de publicacao
+#   rede           "instagram" ou "x"
+#   tipo           "foto" (Instagram) ou "post"/"fio" (X)
+#   data_sugerida  AAAA-MM-DD. So orienta; nao dispara nada sozinho
+#   aprovado       trava principal
+#   arte           nome do arquivo em ARTES/v2-papel-e-tinta/
+#   texto          o texto exato que vai ao ar
+#   condicao       quando existe, e uma regra do plano que voce confere na mao
+#
+# ATENCAO ao limite de caracteres do X: as pecas dos dias 2 a 14 foram
+# escritas para o Instagram, que aceita legenda longa. No X elas estourariam
+# o limite de uma conta comum. Elas estao aqui marcadas com
+# `revisar_tamanho = true`; rode `py publicar.py --checar` para ver a contagem
+# e decida entre encurtar ou publicar so no Instagram. O script nao encurta
+# texto do movimento por conta propria.
+
+[fila]
+nome = "Onda 1"
+observacao = "Só começa depois do PASSO 0 do PLANO/11 (bios, avatar e capa no ar)."
+
+
+# ---------------------------------------------------------------------------
+# DIA 1 — o lançamento
+# ---------------------------------------------------------------------------
+
+[[post]]
+id = "d01-ig-lancamento"
+rede = "instagram"
+tipo = "foto"
+data_sugerida = "2026-08-13"
+aprovado = false
+arte = "card-01-4mil.png"
+texto = '''
+~4 mil pessoas decidem o futuro de um clube de 35 milhões.
+
+Esse é o tamanho do buraco democrático do Corinthians. Enquanto isso, a dívida bruta chegou a R$ 2,72 bilhões em 2025 e o Parque São Jorge foi dado como garantia num acordo com a União.
+
+A crise não é só de dinheiro. É de poder.
+
+Nasce o A Fiel Decide: consultas abertas onde cada corinthiano vale um voto, as contas do clube traduzidas com a fonte de cada número, e um abaixo-assinado pelo voto do sócio-torcedor já.
+
+Não pedimos Pix. Não tem vaquinha, não tem loja, não tem caixa. Pedimos sua voz.
+
+Assina no link da bio.
+
+Fontes: Exame/Poder360 (dívida 2025), MeuTimão (sócios aptos, 2023), Corinthians/PGFN (acordo).
+
+#AFielDecide #DemocraciaCorinthianaDigital #Corinthians #Fiel #Timão
+'''
+
+[[post]]
+id = "d01-x-fio-lancamento"
+rede = "x"
+tipo = "fio"
+data_sugerida = "2026-08-13"
+aprovado = false
+lembrete = "Depois de publicar, fixar o primeiro post no perfil (só dá para fazer na mão)."
+
+  [[post.mensagem]]
+  arte = "card-01-4mil.png"
+  texto = '''
+1/ O Corinthians tem 35 milhões de torcedores.
+Sabe quantos decidem o futuro do clube? ~4 mil sócios.
+A sede foi dada como garantia de dívida. E o torcedor? Assiste de fora.
+Hoje nasce a resposta: A FIEL DECIDE. 🧵
+'''
+
+  [[post.mensagem]]
+  texto = '''
+2/ Em 1982, os jogadores tomaram as decisões do clube no voto, em plena ditadura, e chamaram de Democracia Corinthiana. "Ganhar ou perder, mas sempre com democracia" — a faixa é de 1983, no Morumbi, pro Brasil inteiro ver.
+Democracia não é acessório do Corinthians. É o coração.
+'''
+
+  [[post.mensagem]]
+  arte = "card-05-faixabarrada.png"
+  texto = '''
+2b/ E em 2026? A torcida levou faixa de protesto e a diretoria barrou na porta da Arena.
+Anota: barraram a faixa. Não vão barrar a urna.
+'''
+
+  [[post.mensagem]]
+  texto = '''
+3/ O que é o A Fiel Decide:
+✅ Qualquer corinthiano vota em consultas públicas
+✅ As contas do clube traduzidas, com fonte
+✅ 1 pessoa = 1 voto, sem peso por dinheiro
+❌ Não pedimos Pix. Não tem vaquinha. Não tem dono.
+'''
+
+  [[post.mensagem]]
+  texto = '''
+4/ "Ah, mas vão roubar os votos."
+Não dá: a urna é de vidro. Todo resultado sai com arquivo público que qualquer um reconta, e lacre criptográfico gratuito na blockchain do Bitcoin. Nem a gente consegue fraudar. Código 100% aberto.
+'''
+
+  [[post.mensagem]]
+  texto = '''
+5/ E o SAFiel? A gente completa, não compete.
+O SAFiel traz o capital. A Fiel traz o mandato.
+O que trava a reforma não é dinheiro, é política. Um mandato de milhões de corinthianos é a chave que destrava.
+'''
+
+  [[post.mensagem]]
+  texto = '''
+6/ Aqui não tem líder e não tem salvador. Quem entra vira co-dono da missão, com o mesmo peso de todos. Todo salvador vira cartola — esse ciclo a gente quebrou no desenho.
+'''
+
+  [[post.mensagem]]
+  texto = '''
+7/ Dezembro tem eleição no clube. A pergunta que todo candidato vai ouvir: você assina o compromisso com o voto do torcedor?
+Quem assina, leva o mandato popular. Quem foge, fica marcado.
+'''
+
+  [[post.mensagem]]
+  texto = '''
+8/ Primeiro passo, de graça, 1 minuto:
+✍️ Assina: https://afieldecide.github.io/site/assinar/
+🗳️ Conhece: https://afieldecide.github.io/site/
+📢 Dá RT e chama a quebrada.
+O Corinthians é uma torcida que tem um time. Hora de voltar a mandar. 🖤🤍
+#AFielDecide
+'''
+
+
+# ---------------------------------------------------------------------------
+# DIA 2 — a tese
+# ---------------------------------------------------------------------------
+
+[[post]]
+id = "d02-ig-tese"
+rede = "instagram"
+tipo = "foto"
+data_sugerida = "2026-08-14"
+aprovado = false
+arte = "card-02-tese.png"
+texto = '''
+O SAFiel traz o capital. A Fiel traz o mandato.
+
+Não somos braço do SAFiel nem adversários dele. Somos a metade que faltava.
+
+O dinheiro resolve o balanço. Não resolve a política do Parque São Jorge — foi ali que a reforma travou, não na calculadora. O que nenhum grupo tem hoje é mandato popular: milhões de corinthianos dizendo, em voto verificável, o que querem.
+
+A legitimidade popular não ameaça a reforma. Ela destrava a reforma.
+
+E o Placar Aberto vai cobrar promessa × entrega dos dois lados: diretoria e SAFiel. Ninguém fica sem fiscal, nem os nossos aliados.
+
+#AFielDecide #Corinthians #SAFiel #Fiel
+'''
+
+[[post]]
+id = "d02-x-tese"
+rede = "x"
+tipo = "post"
+data_sugerida = "2026-08-14"
+aprovado = false
+revisar_tamanho = true
+arte = "card-02-tese.png"
+texto = '''
+O SAFiel traz o capital. A Fiel traz o mandato.
+
+Não somos braço do SAFiel nem adversários dele. Somos a metade que faltava.
+
+O dinheiro resolve o balanço. Não resolve a política do Parque São Jorge — foi ali que a reforma travou, não na calculadora. O que nenhum grupo tem hoje é mandato popular: milhões de corinthianos dizendo, em voto verificável, o que querem.
+
+A legitimidade popular não ameaça a reforma. Ela destrava a reforma.
+
+E o Placar Aberto vai cobrar promessa × entrega dos dois lados: diretoria e SAFiel. Ninguém fica sem fiscal, nem os nossos aliados.
+
+#AFielDecide #Corinthians #SAFiel #Fiel
+'''
+
+
+# ---------------------------------------------------------------------------
+# DIA 4 — a desconfiança
+# ---------------------------------------------------------------------------
+
+[[post]]
+id = "d04-ig-semlider"
+rede = "instagram"
+tipo = "foto"
+data_sugerida = "2026-08-16"
+aprovado = false
+arte = "card-03-semlider.png"
+texto = '''
+"Quem tá por trás disso?"
+
+Pergunta certa. Desconfie sempre — inclusive da gente.
+
+Aqui não tem líder, não tem presidente e não tem dono. O código do site é aberto, os mantenedores são públicos e rotativos, e toda chave crítica tem no mínimo três pessoas.
+
+Quem recebe isto e fica vira co-dono da missão, com o mesmo peso de todos. Todo salvador vira, mais cedo ou mais tarde, um novo cartola.
+
+E o teste final: se todo mundo que cuida disso sumir amanhã, qualquer torcedor clona o projeto e reergue tudo num fim de semana. Está escrito e publicado, passo a passo, pra quem nunca programou.
+
+Confere você mesmo: github.com/afieldecide/site
+
+#AFielDecide #Corinthians #Fiel
+'''
+
+[[post]]
+id = "d04-x-semlider"
+rede = "x"
+tipo = "post"
+data_sugerida = "2026-08-16"
+aprovado = false
+revisar_tamanho = true
+arte = "card-03-semlider.png"
+texto = '''
+"Quem tá por trás disso?"
+
+Pergunta certa. Desconfie sempre — inclusive da gente.
+
+Aqui não tem líder, não tem presidente e não tem dono. O código do site é aberto, os mantenedores são públicos e rotativos, e toda chave crítica tem no mínimo três pessoas.
+
+Quem recebe isto e fica vira co-dono da missão, com o mesmo peso de todos. Todo salvador vira, mais cedo ou mais tarde, um novo cartola.
+
+E o teste final: se todo mundo que cuida disso sumir amanhã, qualquer torcedor clona o projeto e reergue tudo num fim de semana. Está escrito e publicado, passo a passo, pra quem nunca programou.
+
+Confere você mesmo: github.com/afieldecide/site
+
+#AFielDecide #Corinthians #Fiel
+'''
+
+
+# ---------------------------------------------------------------------------
+# DIA 6 — a história
+# ---------------------------------------------------------------------------
+
+[[post]]
+id = "d06-ig-faixa1983"
+rede = "instagram"
+tipo = "foto"
+data_sugerida = "2026-08-18"
+aprovado = false
+arte = "card-04-faixa1983.png"
+texto = '''
+"Ganhar ou perder, mas sempre com democracia."
+Faixa da Fiel, Morumbi, dezembro de 1983.
+
+A Democracia Corinthiana não foi feita por diretor. Foi feita por jogadores — Sócrates, Wladimir, Casagrande, Zenon — que decidiam tudo no voto, em plena ditadura, com o próprio emprego em jogo.
+
+O país inteiro aprendeu com uma arquibancada.
+
+Quarenta e três anos depois, o clube que ensinou o Brasil a votar tem ~4 mil pessoas decidindo por 35 milhões.
+
+A gente não está inventando nada. Está cobrando o que já é nosso.
+
+#AFielDecide #DemocraciaCorinthianaDigital #Corinthians #Socrates #Fiel
+'''
+
+[[post]]
+id = "d06-x-faixa1983"
+rede = "x"
+tipo = "post"
+data_sugerida = "2026-08-18"
+aprovado = false
+revisar_tamanho = true
+arte = "card-04-faixa1983.png"
+texto = '''
+"Ganhar ou perder, mas sempre com democracia."
+Faixa da Fiel, Morumbi, dezembro de 1983.
+
+A Democracia Corinthiana não foi feita por diretor. Foi feita por jogadores — Sócrates, Wladimir, Casagrande, Zenon — que decidiam tudo no voto, em plena ditadura, com o próprio emprego em jogo.
+
+O país inteiro aprendeu com uma arquibancada.
+
+Quarenta e três anos depois, o clube que ensinou o Brasil a votar tem ~4 mil pessoas decidindo por 35 milhões.
+
+A gente não está inventando nada. Está cobrando o que já é nosso.
+
+#AFielDecide #DemocraciaCorinthianaDigital #Corinthians #Socrates #Fiel
+'''
+
+
+# ---------------------------------------------------------------------------
+# DIA 8 — a fúria
+# ---------------------------------------------------------------------------
+
+[[post]]
+id = "d08-ig-faixabarrada"
+rede = "instagram"
+tipo = "foto"
+data_sugerida = "2026-08-20"
+aprovado = false
+arte = "card-05-faixabarrada.png"
+texto = '''
+Em 1983 a faixa entrou em campo e mudou o país.
+Em 2026, barraram a faixa de protesto da Fiel na porta da Arena.
+
+Censura na nossa própria casa.
+
+Raiva sem voto vira rouquidão. O A Fiel Decide transforma grito em mandato: consulta pública, 1 pessoa = 1 voto, urna de vidro que ninguém frauda. De graça, sem Pix.
+
+Barraram a faixa. Não vão barrar a urna.
+
+Assina no link da bio.
+
+#AFielDecide #Corinthians #Fiel #Timão
+'''
+
+[[post]]
+id = "d08-x-faixabarrada"
+rede = "x"
+tipo = "post"
+data_sugerida = "2026-08-20"
+aprovado = false
+revisar_tamanho = true
+arte = "card-05-faixabarrada.png"
+texto = '''
+Em 1983 a faixa entrou em campo e mudou o país.
+Em 2026, barraram a faixa de protesto da Fiel na porta da Arena.
+
+Censura na nossa própria casa.
+
+Raiva sem voto vira rouquidão. O A Fiel Decide transforma grito em mandato: consulta pública, 1 pessoa = 1 voto, urna de vidro que ninguém frauda. De graça, sem Pix.
+
+Barraram a faixa. Não vão barrar a urna.
+
+#AFielDecide #Corinthians #Fiel #Timão
+'''
+
+
+# ---------------------------------------------------------------------------
+# DIA 10 — o convite ao elenco (tem condição)
+# ---------------------------------------------------------------------------
+
+[[post]]
+id = "d10-ig-chamado"
+rede = "instagram"
+tipo = "foto"
+data_sugerida = "2026-08-22"
+aprovado = false
+condicao = "Só publicar com prova social na mão (regra do kit 07: 10 mil assinaturas). Convite com número é convite; sem número é carência."
+arte = "card-06-chamado.png"
+texto = '''
+Memphis, vem ser Sócrates.
+
+Sócrates entrou em campo com "eu quero votar pra presidente" nas costas, arriscando o emprego numa ditadura.
+
+Hoje não custa nem isso. Custa uma frase.
+
+O Memphis já mostrou que entendeu o que é vestir esta camisa quando abriu mão de dinheiro do próprio bolso pra ficar. Elenco de 2026: vocês são os herdeiros diretos da Democracia Corinthiana.
+
+O convite é público e não pede um centavo a ninguém: empresta a voz. Um story, uma frase — "a torcida merece votar". A Fiel faz o resto.
+
+#AFielDecide #Corinthians #Memphis #DemocraciaCorinthianaDigital
+'''
+
+[[post]]
+id = "d10-x-chamado"
+rede = "x"
+tipo = "post"
+data_sugerida = "2026-08-22"
+aprovado = false
+revisar_tamanho = true
+condicao = "Mesma trava do post do Instagram: só com prova social. E nunca transformar silêncio de jogador em pauta."
+arte = "card-06-chamado.png"
+texto = '''
+Memphis, vem ser Sócrates.
+
+Sócrates entrou em campo com "eu quero votar pra presidente" nas costas, arriscando o emprego numa ditadura.
+
+Hoje não custa nem isso. Custa uma frase.
+
+O Memphis já mostrou que entendeu o que é vestir esta camisa quando abriu mão de dinheiro do próprio bolso pra ficar. Elenco de 2026: vocês são os herdeiros diretos da Democracia Corinthiana.
+
+O convite é público e não pede um centavo a ninguém: empresta a voz. Um story, uma frase — "a torcida merece votar". A Fiel faz o resto.
+
+#AFielDecide #Corinthians #Memphis #DemocraciaCorinthianaDigital
+'''
+
+
+# ---------------------------------------------------------------------------
+# DIA 12 — o chamado de organização
+# ---------------------------------------------------------------------------
+
+[[post]]
+id = "d12-ig-nucleo"
+rede = "instagram"
+tipo = "foto"
+data_sugerida = "2026-08-24"
+aprovado = false
+arte = "card-07-nucleo.png"
+texto = '''
+1 é opinião. 2 é resenha. 3 é núcleo.
+
+Sem líder e sem dono significa que a organização é sua também. Um núcleo é qualquer grupo de corinthianos que assume levar isso adiante: quebrada, organizada, grupo de WhatsApp, sala de aula, mesa de bar.
+
+Junta 3 pessoas, pega o manual aberto e abre o seu. Ninguém precisa pedir licença, e ninguém vira chefe: os papéis giram todo mês.
+
+Manual completo: afieldecide.github.io/site/nucleos/
+
+#AFielDecide #Corinthians #Fiel
+'''
+
+[[post]]
+id = "d12-x-nucleo"
+rede = "x"
+tipo = "post"
+data_sugerida = "2026-08-24"
+aprovado = false
+revisar_tamanho = true
+arte = "card-07-nucleo.png"
+texto = '''
+1 é opinião. 2 é resenha. 3 é núcleo.
+
+Sem líder e sem dono significa que a organização é sua também. Um núcleo é qualquer grupo de corinthianos que assume levar isso adiante: quebrada, organizada, grupo de WhatsApp, sala de aula, mesa de bar.
+
+Junta 3 pessoas, pega o manual aberto e abre o seu. Ninguém precisa pedir licença, e ninguém vira chefe: os papéis giram todo mês.
+
+Manual completo: afieldecide.github.io/site/nucleos/
+
+#AFielDecide #Corinthians #Fiel
+'''
+
+
+# ---------------------------------------------------------------------------
+# DIA 14 — a garantia
+# ---------------------------------------------------------------------------
+
+[[post]]
+id = "d14-ig-zelador"
+rede = "instagram"
+tipo = "foto"
+data_sugerida = "2026-08-26"
+aprovado = false
+arte = "card-08-zelador.png"
+texto = '''
+Todo movimento de torcida morre do mesmo jeito: alguém vira dono.
+
+Por isso aqui o núcleo não tem presidente, tem zelador — e o zelador troca todo mês. Ele cuida, não manda.
+
+Vale pra infraestrutura também: toda conta crítica tem no mínimo três pessoas de núcleos diferentes, listadas em público. Mantenedor é zelador temporário e substituível por desenho.
+
+As senhas morrem. A urna de vidro fica.
+
+#AFielDecide #Corinthians #Fiel
+'''
+
+[[post]]
+id = "d14-x-zelador"
+rede = "x"
+tipo = "post"
+data_sugerida = "2026-08-26"
+aprovado = false
+revisar_tamanho = true
+arte = "card-08-zelador.png"
+texto = '''
+Todo movimento de torcida morre do mesmo jeito: alguém vira dono.
+
+Por isso aqui o núcleo não tem presidente, tem zelador — e o zelador troca todo mês. Ele cuida, não manda.
+
+Vale pra infraestrutura também: toda conta crítica tem no mínimo três pessoas de núcleos diferentes, listadas em público. Mantenedor é zelador temporário e substituível por desenho.
+
+As senhas morrem. A urna de vidro fica.
+
+#AFielDecide #Corinthians #Fiel
+'''

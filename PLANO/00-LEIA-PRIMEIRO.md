@@ -21,6 +21,7 @@
 | 08 | `08-roteiro-contas.md` | Checklist das contas que o mantenedor cria (e-mail, Change.org, redes, domínio, GitHub) | **Guia de ação** |
 | 09 | `09-chips-proximas-sessoes.md` | Os 5 chips/prompts das próximas sessões, na ordem | **Guia de ação** |
 | 10 | `10-playbook-nucleo.md` + `.html` | O Playbook do Núcleo — manual aberto de como abrir e tocar um núcleo (rito de 15 min, papéis rotativos, kit de rua) | **Entregável** |
+| 11 | `11-fila-de-posts.md` | A fila da Onda 1 pronta pra copiar e colar: bio dos perfis, post a post com data, arte e texto final | **Entregável** |
 | — | `..\ARTES\v2-papel-e-tinta\` | 8 cards 1080×1080 + 4 fotos de perfil + 2 capas do X, na identidade do site novo (gerador: `gera_artes.py`) | **Entregável** |
 
 **Site publicado (online agora):** https://afieldecide.github.io/site/
